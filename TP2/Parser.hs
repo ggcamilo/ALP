@@ -16,10 +16,10 @@ module Parser where
   
   appN :: Integer -> LamTerm -> LamTerm -> LamTerm
   appN 0 t1 t2 = t2
-  appN n t1 t2 = App t1 (appN (n-1) t1 t2)
+  appN n t1 t2 = App t1 $ appN (n-1) t1 t2
   
   num :: Integer -> LamTerm
-  num n = (Abs "s" (Abs "z" (appN (LVar "s") (LVar "z"))))
+  num n = Abs "s" $ Abs "z" $ appN n (LVar "s") (LVar "z")
 
 -------------------------------------------------
 -- Parser de Lambda Cálculo (Gramatica Extendida) 
