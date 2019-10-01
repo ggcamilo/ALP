@@ -3,7 +3,7 @@
 def id = \x . x 
 
 -- Booleanos
-def true = \ t f . t
+def true  = \t f . t
 def false = \t f . f
 
 def and = \a b. a b false

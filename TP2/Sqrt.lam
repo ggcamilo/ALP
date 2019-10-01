@@ -1,0 +1,16 @@
+
+-- not logico
+def not = \p. if p false true
+
+-- if then else
+def if = \p x y. p x y
+
+-- mayor estricto
+def grater = \x y. and (is0 (dif y x)) (not (is0 (dif x y))) 
+
+-- resta
+def dif = \x y. y pred x
+
+-- raiz cuadrada
+def raiz' = Y (\f n i. if (grater (mult (suc i) (suc i)) n) i (f n (suc i)))
+def raiz  = \n. raiz' n (suc zero)
