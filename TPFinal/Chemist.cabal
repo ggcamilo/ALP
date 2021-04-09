@@ -1,0 +1,70 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: e9e6f5290f6ab1b45605aafa6d6a5427ec1b7c31125e53175cf599b9dd29cc32
+
+name:           Chemist
+version:        0.9.1.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/TP4#readme>
+homepage:       https://github.com/#readme
+bug-reports:    https://github.com//issues
+author:         Camilo Garcia Gonzalez
+maintainer:     camilogg1996@hotmail.com
+copyright:      2021 Camilo Garcia Gonzalez
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/
+
+library
+  exposed-modules:
+      AST
+      Eval
+      Monads
+      Parse
+      PPLis
+  other-modules:
+      Paths_Chemist
+  hs-source-dirs:
+      src
+  default-extensions: GADTs StandaloneDeriving PatternSynonyms FlexibleInstances TupleSections MultiWayIf
+  build-depends:
+      QuickCheck
+    , base >=4.7 && <5
+    , containers
+    , directory
+    , mtl
+    , parsec
+    , pretty
+    , strict
+    , array
+  default-language: Haskell2010
+
+executable Chemist-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_Chemist
+  hs-source-dirs:
+      app
+  default-extensions: GADTs StandaloneDeriving PatternSynonyms FlexibleInstances TupleSections MultiWayIf
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      QuickCheck
+    , Chemist
+    , base >=4.7 && <5
+    , containers
+    , directory
+    , mtl
+    , parsec
+    , pretty
+    , strict
+  default-language: Haskell2010

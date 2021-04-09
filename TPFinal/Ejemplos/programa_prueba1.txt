@@ -1,0 +1,24 @@
+
+C + 2*O = CO2.
+
+x = CO2 {v=15; t=100; p=756}.
+
+res = (CO2_w * x_p * x_v) / (62,36 * (x_t + 273)).
+
+return res.
+
+-----------------------------------------------------
+
+
+H2  = 2*H.
+O2  = 2*O.
+H2O = H2 + O.
+
+[2(H2)]g + [O2]g -> [2(H2O)]l.
+
+dihidrogeno = H2 {}.
+oxigeno2    = O2 {}.
+
+peroxidoHidrogeno = react (2(dihidrogeno) + oxigeno2).
+
+return peroxidoHidrogeno_t.

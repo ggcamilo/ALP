@@ -1,0 +1,82 @@
+
+
+Simbolo   = String
+
+Estado    = L | S | G | Aq
+
+Elemento   = Elem Simbolo  Double    Nat Nat
+
+Compuesto  = Simbolo
+           | Simp Nat        Elemento
+           | Comp Compuesto  Compuesto
+
+
+Muestra  = Simbolo
+         | DefM  Compuesto Double  Double Double
+         | ReacM Muestra   Muestra  
+
+
+Reactivo = R Compuesto Nat Estado
+Producto = Reactivo
+
+
+Reaccion = Irr Reactivo Reactivo Producto
+         | Rev Reactivo Reactivo Producto
+
+
+NumExp  = Nat
+		| Double
+        | NVar   Var
+        | Neg    NumExp
+        | Sum    NumExp NumExp
+		| Mult   NumExp NumExp
+		| Resta  NumExp NumExp
+		| Div    NumExp NumExp
+		
+		| NumAt   Simbolo
+		| NumVal  Simbolo
+		| Weight  Simbolo
+	    
+		| Temp   Var
+		| Volume Var
+		| Press  Var
+
+
+BoolExp = True 
+        | False
+        | BVar   Var
+        | Not    BoolExp
+        | And    BoolExp  BoolExp
+        | Or     BoolExp  BoolExp
+        | NumEq  NumExp   NumExp
+        | NumGt  NumExp   NumExp
+        | NumLt  NumExp   NumExp
+        | NumGEq NumExp   NumExp
+        | NumLEq NumExp   NumExp
+        
+        | ElemEq Elem       Elem
+        | SustEq SustSimple SustSimple
+        | CompEq Compuesto  Compuesto
+        
+        | EstEq  Estado Estado
+        
+
+Exp  = NumExp 
+     | BoolExp
+     | Muestra
+     | Compuesto
+
+
+Comm = Skip     
+     | Ass        Var      Exp
+     | Seq        Comm     Comm
+     | IfThen     BoolExp  Comm
+     | IfThenElse BoolExp  Comm Comm
+     | While      BoolExp  Comm
+     | Return     Exp
+
+     
+
+
+
+
